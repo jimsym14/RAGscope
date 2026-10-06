@@ -1,11 +1,12 @@
 import io
 import os
+import shutil
 from importlib.util import find_spec
 from pathlib import Path
 
 import streamlit as st
 
-from config import FILINGS_DIR, MODEL_BENCHMARK_PRESETS, get_available_ollama_models
+from config import CHROMA_PATH, FILINGS_DIR, MODEL_BENCHMARK_PRESETS, get_available_ollama_models
 from ui.assets import favicon_path, load_css, logo_b64
 
 st.set_page_config(
@@ -123,7 +124,14 @@ else:
             if str(new_model or "").startswith("llama3.2:3b"):
                 st.session_state["use_hyde_lite"] = False
 
-        collection = get_chatbot_collection()
+        try:
+            collection = get_chatbot_collection()
+        except Exception:
+            if os.environ.get("RAGSCOPE_VECTOR_STORE"):
+                raise
+            shutil.rmtree(CHROMA_PATH, ignore_errors=True)
+            st.cache_resource.clear()
+            collection = get_chatbot_collection()
         if collection.count() == 0:
             demo_paths = sorted(Path(FILINGS_DIR).glob("Apple_10K_*.pdf"))
             demo_files = []

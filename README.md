@@ -43,7 +43,14 @@ requirements*.txt               Dashboard, RAG, and research dependencies
 
 ## Quick start: Evaluation Dashboard
 
-Install Python and create a virtual environment.
+Install Python, Git LFS, and create a virtual environment. The prebuilt Chroma demo index is stored with Git LFS; after cloning, fetch it with:
+
+```bash
+git lfs install
+git lfs pull
+```
+
+If Git LFS is unavailable, the application can rebuild the index from the bundled PDFs on first Chat launch.
 
 **macOS/Linux**
 
