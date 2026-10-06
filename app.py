@@ -155,7 +155,9 @@ else:
                 index, template = load_engine(st.session_state.selected_model, context_window, timeout, enable_timeout)
                 render_chat_view(index, template)
             else:
-                st.error("The bundled Apple 10-K demo corpus could not be indexed. Check the technical details below.")
+                st.error(
+                    "No indexed documents are available. Check the technical details below."
+                )
                 with st.expander("Technical details"):
                     st.code("No documents were added to the local Chroma collection.")
         except Exception as exc:
