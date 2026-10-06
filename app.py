@@ -1,8 +1,11 @@
+import io
 import os
+from importlib.util import find_spec
+from pathlib import Path
 
 import streamlit as st
 
-from config import MODEL_BENCHMARK_PRESETS, get_available_ollama_models
+from config import FILINGS_DIR, MODEL_BENCHMARK_PRESETS, get_available_ollama_models
 from ui.assets import favicon_path, load_css, logo_b64
 
 st.set_page_config(
@@ -21,10 +24,11 @@ def render_navigation(current_page: str) -> None:
                 f'<div style="margin-bottom:12px; text-align:center;"><img src="data:image/svg+xml;base64,{logo_b64}" style="width:140px; filter:invert(1);" alt="RAGscope"/></div>',
                 unsafe_allow_html=True,
             )
-        st.markdown(
-            '<div class="sidebar-setup-hint">Chat and Vector Visualizer need the RAG dependencies.<br><code>pip install -r requirements-rag.txt</code><br>Evaluation works without them.</div>',
-            unsafe_allow_html=True,
-        )
+        if find_spec("chromadb") is None or find_spec("llama_index") is None:
+            st.markdown(
+                '<div class="sidebar-setup-hint">Chat and Vector Visualizer need the RAG dependencies.<br><code>pip install -r requirements-rag.txt</code><br>Evaluation works without them.</div>',
+                unsafe_allow_html=True,
+            )
         for page, label, icon in (
             ("evaluation", "Evaluation", ":material/leaderboard:"),
             ("chat", "Chat", ":material/chat:"),
@@ -72,7 +76,12 @@ else:
         )
     else:
         try:
-            from document_pipeline import get_chroma_collection, get_chatbot_collection, load_engine
+            from document_pipeline import (
+                get_chroma_collection,
+                get_chatbot_collection,
+                load_engine,
+                process_and_index_files,
+            )
             from prompts import load_test_prompts
             from views.chat_view import render_chat_view
             from views.sidebar_view import render_sidebar
@@ -114,17 +123,33 @@ else:
             if str(new_model or "").startswith("llama3.2:3b"):
                 st.session_state["use_hyde_lite"] = False
 
+        collection = get_chatbot_collection()
+        if collection.count() == 0:
+            demo_paths = sorted(Path(FILINGS_DIR).glob("Apple_10K_*.pdf"))
+            demo_files = []
+            try:
+                demo_files = [io.BytesIO(path.read_bytes()) for path in demo_paths]
+                for path, demo_file in zip(demo_paths, demo_files):
+                    demo_file.name = path.name
+                if demo_files:
+                    process_and_index_files(demo_files, None, collection=collection)
+            finally:
+                for demo_file in demo_files:
+                    demo_file.close()
+
         render_sidebar(models, load_test_prompts(), on_model_change, get_chroma_collection, current_page)
         context_window = st.session_state.get("context_window", 8192)
         timeout = st.session_state.get("request_timeout", 0)
         enable_timeout = st.session_state.get("enable_timeout", False)
         try:
             collection = get_chatbot_collection()
-            if collection.count() == 0:
-                st.info("No RAG documents are indexed. Add the Apple 10-K PDFs in the Chat sidebar to build a local index.")
-            else:
+            if collection.count() > 0:
                 index, template = load_engine(st.session_state.selected_model, context_window, timeout, enable_timeout)
                 render_chat_view(index, template)
+            else:
+                st.error("The bundled Apple 10-K demo corpus could not be indexed. Check the technical details below.")
+                with st.expander("Technical details"):
+                    st.code("No documents were added to the local Chroma collection.")
         except Exception as exc:
             st.error("RAG Chat could not open its local vector index. The Evaluation dashboard remains available.")
             with st.expander("Technical details"):

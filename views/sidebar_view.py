@@ -65,11 +65,6 @@ def render_sidebar(
                 f'<div style="margin-bottom:12px; text-align:center;"><img src="data:image/svg+xml;base64,{logo_b64}" style="width:140px; filter:invert(1);" alt="RAGscope"/></div>',
                 unsafe_allow_html=True
             )
-        st.markdown(
-            '<div class="sidebar-setup-hint">Chat and Vector Visualizer need the RAG dependencies.<br><code>pip install -r requirements-rag.txt</code><br>Evaluation works without them.</div>',
-            unsafe_allow_html=True,
-        )
-
         st.markdown('<div class="sidebar-section-title">Navigation</div>', unsafe_allow_html=True)
         col_nav1, col_nav2 = st.columns(2)
         with col_nav1:
