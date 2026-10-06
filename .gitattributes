@@ -1,0 +1,1 @@
+data/vector_store/chroma/** filter=lfs diff=lfs merge=lfs -text

@@ -79,7 +79,7 @@ Install and start [Ollama](https://ollama.com/). RAGscope uses any model reporte
 ollama pull llama3.1:8b
 ```
 
-If Ollama is not already running as a service, start it with `ollama serve`. Then launch RAGscope and select **Chat**. The release includes the ten Apple 10-K PDFs used by the demo. On the first Chat launch, RAGscope indexes them automatically into the local Chroma store; additional PDF files can still be uploaded from the sidebar. The default index path is `data/vector_store/chroma`.
+If Ollama is not already running as a service, start it with `ollama serve`. Then launch RAGscope and select **Chat**. The release includes the ten Apple 10-K PDFs and a prebuilt clean Chroma index for the demo. The index is stored through Git LFS at `data/vector_store/chroma`; if it is missing or empty, RAGscope rebuilds it automatically from the bundled PDFs. Additional PDF files can still be uploaded from the sidebar. The default index path is `data/vector_store/chroma`.
 
 Set `RAGSCOPE_VECTOR_STORE` to use an existing Chroma store. The Visualizer reads the `apple_financials` collection; no populated collection is included. Chat-uploaded PDFs use a separate chat collection and do not automatically populate the Visualizer's collection.
 

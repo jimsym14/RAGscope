@@ -38,6 +38,9 @@ Thumbs.db
 data/chroma/
 data/chroma_db/
 data/vector_store/
+!data/vector_store/
+!data/vector_store/chroma/
+!data/vector_store/chroma/**
 data/checkpoints/
 
 # Logs and temporary files
