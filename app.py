@@ -3,7 +3,7 @@ import os
 import streamlit as st
 
 from config import MODEL_BENCHMARK_PRESETS, get_available_ollama_models
-from ui.assets import favicon_path, load_css
+from ui.assets import favicon_path, load_css, logo_b64
 
 st.set_page_config(
     page_title="RAGscope — Apple 10-K Intelligence",
@@ -16,7 +16,15 @@ load_css()
 
 def render_navigation(current_page: str) -> None:
     with st.sidebar:
-        st.markdown("### RAGscope")
+        if logo_b64:
+            st.markdown(
+                f'<div style="margin-bottom:12px; text-align:center;"><img src="data:image/svg+xml;base64,{logo_b64}" style="width:140px; filter:invert(1);" alt="RAGscope"/></div>',
+                unsafe_allow_html=True,
+            )
+        st.markdown(
+            '<div class="sidebar-setup-hint">Chat and Vector Visualizer need the RAG dependencies.<br><code>pip install -r requirements-rag.txt</code><br>Evaluation works without them.</div>',
+            unsafe_allow_html=True,
+        )
         for page, label, icon in (
             ("evaluation", "Evaluation", ":material/leaderboard:"),
             ("chat", "Chat", ":material/chat:"),

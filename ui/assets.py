@@ -33,6 +33,8 @@ f_ag_r = b64(os.path.join(UI_DIR, "AppleGaramond.ttf"))
 f_ag_b = b64(os.path.join(UI_DIR, "AppleGaramond-Bold.ttf"))
 f_ag_i = b64(os.path.join(UI_DIR, "AppleGaramond-Italic.ttf"))
 f_ag_bi = b64(os.path.join(UI_DIR, "AppleGaramond-BoldItalic.ttf"))
+f_ahg_fallback = b64(os.path.join(UI_DIR, "IBMPlexSans-Variable.ttf"))
+f_ag_fallback = b64(os.path.join(UI_DIR, "EBGaramond-Variable.ttf"))
 
 title_svg_path = os.path.join(UI_DIR, "RAGscope_title.svg")
 title_svg_b64 = b64(title_svg_path)
@@ -58,6 +60,8 @@ def load_css() -> None:
     @font-face {{ font-family: 'AG'; src: url('data:font/ttf;base64,{f_ag_b}') format('truetype'); font-weight: 700; font-style: normal; }}
     @font-face {{ font-family: 'AG'; src: url('data:font/ttf;base64,{f_ag_i}') format('truetype'); font-weight: 400; font-style: italic; }}
     @font-face {{ font-family: 'AG'; src: url('data:font/ttf;base64,{f_ag_bi}') format('truetype'); font-weight: 700; font-style: italic; }}
+    @font-face {{ font-family: 'AHG Fallback'; src: url('data:font/ttf;base64,{f_ahg_fallback}') format('truetype'); font-weight: 100 700; font-style: normal; }}
+    @font-face {{ font-family: 'AG Fallback'; src: url('data:font/ttf;base64,{f_ag_fallback}') format('truetype'); font-weight: 400 800; font-style: normal; }}
     </style>
     """
     st.markdown(font_css, unsafe_allow_html=True)
@@ -94,7 +98,7 @@ def render_loading_screen(title: str, subtitle: str) -> None:
             margin-bottom: 22px;
         "></div>
         <h2 style="
-            font-family: 'AHG', 'SF Pro Display', -apple-system, sans-serif;
+            font-family: 'AHG', 'AHG Fallback', 'SF Pro Display', -apple-system, sans-serif;
             font-size: 20px;
             font-weight: 600;
             color: #f8fafc;
@@ -102,7 +106,7 @@ def render_loading_screen(title: str, subtitle: str) -> None:
             margin: 0 0 8px 0;
         ">{title}</h2>
         <p style="
-            font-family: 'AHG', 'SF Pro Text', -apple-system, sans-serif;
+            font-family: 'AHG', 'AHG Fallback', 'SF Pro Text', -apple-system, sans-serif;
             font-size: 13.5px;
             color: #94a3b8;
             margin: 0;

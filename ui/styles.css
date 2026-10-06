@@ -23,8 +23,26 @@ span.material-symbols-rounded {
 
 
 html, body, .stApp {
-    font-family: 'AG', Georgia, serif;
+    font-family: 'AG', 'AG Fallback', Georgia, serif;
     font-size: 16px !important;
+}
+
+.sidebar-setup-hint {
+    margin: 0 0 14px;
+    padding: 9px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #b8b8b0;
+    font-family: 'AHG', 'AHG Fallback', sans-serif;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.sidebar-setup-hint code {
+    color: #f0f0eb;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 10px;
 }
 
 
@@ -361,7 +379,7 @@ div:has(.judge-peek-btn.active-peek) div[data-testid="stPlotlyChart"][class*="_c
 
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'AHG', sans-serif !important;
+    font-family: 'AHG', 'AHG Fallback', sans-serif !important;
 }
 
 
@@ -754,7 +772,7 @@ section[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
     clip-path: inset(20% 0);
 }
 .welcome-subtitle {
-    font-family: 'AG', Georgia, serif;
+    font-family: 'AG', 'AG Fallback', Georgia, serif;
     font-size: 22px;
     color: #9a9990;
     margin-bottom: 24px;
@@ -762,7 +780,7 @@ section[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
 
 
 .sidebar-section-title {
-    font-family: 'AHG', sans-serif;
+    font-family: 'AHG', 'AHG Fallback', sans-serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -775,7 +793,7 @@ section[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
 .retrieval-section-label {
     margin: 9px 0 5px 0;
     color: #b8b8c0;
-    font-family: 'AHG', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'AHG', 'AHG Fallback', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: .015em;
@@ -904,7 +922,7 @@ div:not(:has([data-testid="stChatInput"])) #nav-arrows {
 
 
 div[data-testid="stColumn"]:has(button[key^="nav_btn_"]) button {
-    font-family: 'AHG', 'SF Pro Display', -apple-system, sans-serif !important;
+    font-family: 'AHG', 'AHG Fallback', 'SF Pro Display', -apple-system, sans-serif !important;
     font-size: 11.5px !important;
     font-weight: 600 !important;
     letter-spacing: -0.01em !important;
@@ -1102,7 +1120,7 @@ div[class*="st-key-del_doc_"] button [data-testid="stIconMaterial"],
 .agent-response-text em,
 .agent-response-text b,
 .agent-response-text i {
-    font-family: 'AG', Georgia, serif !important;
+    font-family: 'AG', 'AG Fallback', Georgia, serif !important;
 }
 .agent-response-text {
     font-size: 18.5px !important;
@@ -1333,7 +1351,7 @@ div[data-testid="stElementContainer"]:has(input[aria-label="Chat Title"]) div[da
 div[data-testid="stElementContainer"]:has(input[aria-label="Chat Title"]) input[aria-label="Chat Title"] {
     font-size: 26px !important;
     font-weight: 700 !important;
-    font-family: 'AG', Georgia, serif !important;
+    font-family: 'AG', 'AG Fallback', Georgia, serif !important;
     color: #f8fafc !important;
     background: transparent !important;
     background-color: transparent !important;
@@ -1479,7 +1497,7 @@ button[role="tab"] {
 [data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
 button[data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
 div[data-testid="stTabs"] button *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]) {
-    font-family: 'AHG', 'Segoe UI', -apple-system, sans-serif !important;
+    font-family: 'AHG', 'AHG Fallback', 'Segoe UI', -apple-system, sans-serif !important;
     font-size: 15px !important;
     font-weight: 700 !important;
     letter-spacing: -0.01em !important;
@@ -1628,7 +1646,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'AHG', 'Segoe UI', sans-serif;
+    font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1641,7 +1659,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
 }
 
 .rq-journey-title {
-    font-family: 'AHG', 'Segoe UI', sans-serif;
+    font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif;
     font-size: 15px;
     font-weight: 700;
     color: #f8fafc;
@@ -1677,7 +1695,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
 }
 
 .rq-journey-block-label {
-    font-family: 'AHG', 'Segoe UI', sans-serif;
+    font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -1690,7 +1708,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
 }
 
 .rq-journey-block-text {
-    font-family: 'AHG', 'Segoe UI', sans-serif;
+    font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif;
     font-size: 12.5px;
     line-height: 1.48;
     color: #cbd5e1;
@@ -1727,7 +1745,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
         pointer-events: none !important;
     }
     .eval-hero-title {
-        font-family: 'AHG', 'Plus Jakarta Sans', 'Inter', 'Segoe UI', sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Plus Jakarta Sans', 'Inter', 'Segoe UI', sans-serif !important;
         font-size: 33px !important;
         font-weight: 700 !important;
         letter-spacing: -0.03em !important;
@@ -1783,7 +1801,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
         flex-shrink: 0 !important;
     }
     .eval-card-title {
-        font-family: 'AHG', sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', sans-serif !important;
         font-size: 20px !important;
         font-weight: 700 !important;
         color: #f1f5f9 !important;
@@ -1854,7 +1872,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
 
     div[data-baseweb="select"] [data-testid="stMarkdownContainer"] p,
     div[data-baseweb="select"] span {
-        font-family: 'AHG', 'Segoe UI', sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif !important;
         font-size: 14px !important;
         font-weight: 600 !important;
         color: #f1f5f9 !important;
@@ -1903,7 +1921,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
         color: #94a3b8 !important;
     }
     div[data-testid="stMetric"] [data-testid="stMetricValue"] {
-        font-family: 'AHG', 'Segoe UI', sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif !important;
         font-size: 32px !important;
         font-weight: 700 !important;
         color: #f8fafc !important;
@@ -1967,7 +1985,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
         gap: 6px !important;
     }
     .eval-kpi-val {
-        font-family: 'AHG', 'Segoe UI', sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Segoe UI', sans-serif !important;
         font-size: 32px !important;
         font-weight: 700 !important;
         color: #f8fafc !important;
@@ -2095,7 +2113,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
     [data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
     button[data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
     div[data-testid="stTabs"] button *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]) {
-        font-family: 'AHG', 'Segoe UI', -apple-system, sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Segoe UI', -apple-system, sans-serif !important;
         font-size: 16.5px !important;
         font-weight: 700 !important;
         letter-spacing: -0.01em !important;
@@ -2385,7 +2403,7 @@ div[role="tabpanel"] div[data-testid="stVerticalBlockBorderWrapper"] > div:hover
     [data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
     button[data-testid="stTab"] *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]),
     div[data-testid="stTabs"] button *:not([data-testid="stIconMaterial"]):not([translate="no"]):not([class*="material-symbols"]):not([class*="ed4y4ls0"]) {
-        font-family: 'AHG', 'Segoe UI', -apple-system, sans-serif !important;
+        font-family: 'AHG', 'AHG Fallback', 'Segoe UI', -apple-system, sans-serif !important;
         font-size: 15px !important;
         font-weight: 700 !important;
         letter-spacing: -0.01em !important;
