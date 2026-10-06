@@ -10,9 +10,9 @@ The two CSV files in `data/` are benchmark inputs; `test_prompts.json` contains 
 
 ## Runtime data
 
-Chat history is stored in `data/chats.db`. It is created locally and excluded from the repository. Experiment checkpoints and generated Chroma indexes are also local runtime data. `RAGSCOPE_DATA_DIR` moves runtime data to another directory; the included dashboard database files are not copied there automatically, so copy them if you want the populated dashboard while using a custom data directory.
+Chat history is stored in `data/chats.db`. It is created locally and excluded from the repository. Experiment checkpoints and newly generated Chroma indexes are local runtime data. The release also includes a prebuilt demo index at `data/vector_store/chroma`, tracked with Git LFS. `RAGSCOPE_DATA_DIR` moves runtime data to another directory; the included dashboard database and demo vector index are not copied there automatically, so copy them if you want the populated dashboard and Visualizer while using a custom data directory.
 
-`RAGSCOPE_VECTOR_STORE` selects an existing Chroma index. The repository does not bundle a vector index or source 10-K PDFs. To build an index, install `requirements-rag.txt`, start Chat, and upload PDFs. Do not point the app at a Chroma database while another process is writing to it.
+`RAGSCOPE_VECTOR_STORE` selects an existing Chroma index and defaults to `data/vector_store/chroma`. The release includes the ten Apple 10-K PDFs and this prebuilt index; run `git lfs pull` after cloning to fetch the index contents. If the index is missing or empty, install `requirements-rag.txt`, start Chat, and the application can rebuild it from the bundled PDFs. Do not point the app at a Chroma database while another process is writing to it.
 
 ## Replacing or backing up results
 

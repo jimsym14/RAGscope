@@ -88,7 +88,7 @@ ollama pull llama3.1:8b
 
 If Ollama is not already running as a service, start it with `ollama serve`. Then launch RAGscope and select **Chat**. The release includes the ten Apple 10-K PDFs and a prebuilt clean Chroma index for the demo. The index is stored through Git LFS at `data/vector_store/chroma`; if it is missing or empty, RAGscope rebuilds it automatically from the bundled PDFs. Additional PDF files can still be uploaded from the sidebar. The default index path is `data/vector_store/chroma`.
 
-Set `RAGSCOPE_VECTOR_STORE` to use an existing Chroma store. The Visualizer reads the `apple_financials` collection; no populated collection is included. Chat-uploaded PDFs use a separate chat collection and do not automatically populate the Visualizer's collection.
+Set `RAGSCOPE_VECTOR_STORE` to use an existing Chroma store. The release includes the populated `apple_financials` collection used by the Visualizer. Chat-uploaded PDFs use a separate chat collection and do not automatically populate the Visualizer's collection.
 
 ## Research and experiment reproduction
 
@@ -143,4 +143,4 @@ This repository accompanies an undergraduate Computer Science thesis evaluating 
 
 The dashboard displays stored results; installing the software does not regenerate the thesis experiments. Reproduction may require specific model versions, local hardware, an indexed document corpus, and external judge credentials. Results can vary with those conditions.
 
-Apple filings and model files are not bundled. Check the provenance and redistribution terms of source documents and any replacement result data before sharing them.
+Model files are not bundled. The ten Apple 10-K PDFs and the prebuilt Chroma index are included in the release; the index is tracked with Git LFS. Check the provenance and redistribution terms of source documents and any replacement result data before sharing them.
