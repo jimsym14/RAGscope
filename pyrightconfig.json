@@ -1,0 +1,23 @@
+{
+  "venvPath": ".",
+  "venv": "venv",
+  "include": [
+    "app.py",
+    "config.py",
+    "prompts.py",
+    "evaluation_engine.py",
+    "adversarial_benchmark.py",
+    "judge_providers.py",
+    "db.py",
+    "document_pipeline.py",
+    "ui",
+    "views"
+  ],
+  "exclude": [
+    "scripts",
+    "venv",
+    ".git"
+  ],
+  "reportMissingImports": "warning",
+  "reportMissingTypeStubs": "none"
+}

@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables (API keys)
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Runtime databases (regenerated from experiments)
+*.db
+*.db-wal
+*.db-shm
+!data/experiments.db
+!data/sensitivity_ablation/sensitivity_runs.db
+!data/adversarial_benchmark.csv
+
+# Vector stores (too large for git, rebuilt from PDFs)
+data/chroma/
+data/chroma_db/
+data/vector_store/
+data/checkpoints/
+
+# Logs and temporary files
+data/generation_logs.txt
+data/hardware_micro_benchmark*.csv
+tmp/
+scratch/
+
+# Ruff cache
+.ruff_cache/
+
+# HuggingFace cache
+.cache/
+

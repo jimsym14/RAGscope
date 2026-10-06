@@ -1,0 +1,32 @@
+[
+    {
+        "id": "gross_margin",
+        "label": "Gross Margin Trajectory (FY21-FY23)",
+        "category": "Multi-Hop Financial Analysis",
+        "prompt": "What was Apple's gross margin percentage in fiscal years 2021, 2022, and 2023, and what primary factors drove the year-over-year changes according to MD&A?"
+    },
+    {
+        "id": "services_cogs",
+        "label": "Services Cost of Sales (FY22 vs FY23)",
+        "category": "Comparative Expense Analysis",
+        "prompt": "How did Services cost of sales change from FY22 to FY23, and what specific drivers were cited in the 10-K?"
+    },
+    {
+        "id": "rd_expense",
+        "label": "R&D Expense Scaling (FY21-FY23)",
+        "category": "Ratio & Trend Calculation",
+        "prompt": "Compare Research and Development expenses across FY21, FY22, and FY23 as a percentage of total net sales. Why did R&D spending increase in absolute dollar terms?"
+    },
+    {
+        "id": "risk_supply",
+        "label": "Supply Chain Single-Source Risks (FY23)",
+        "category": "Qualitative Risk Factor",
+        "prompt": "What specific risks regarding single-source component suppliers and outsourced manufacturing are outlined in Item 1A of the FY23 10-K?"
+    },
+    {
+        "id": "share_repurchase",
+        "label": "Capital Return & Share Repurchases",
+        "category": "Capital Structure & Liquidity",
+        "prompt": "Detail Apple's share repurchase program activity in fiscal 2023, including total dollars spent, average price per share if reported, and remaining authorized capacity under the program."
+    }
+]
